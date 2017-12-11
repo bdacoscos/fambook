@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <div>
-      <a href='#'>Activity</a>
-      <a href='#'>Calendar</a>
-      <a href='#'>Messages</a>
+      <Link to="/activity">Activity</Link>
+      <Link to="/calendar">Calendar</Link>
+      <Link to="/messages">Messages</Link>
     </div>
   )
 }

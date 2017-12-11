@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {
+  Switch,
+  Route
+} from 'react-router-dom';
 import WelcomePage from './../WelcomePage/WelcomePage';
 import ActivityPage from './../ActivityPage/ActivityPage';
 import CalendarPage from './../CalendarPage/CalendarPage';
@@ -10,10 +14,20 @@ class App extends Component {
     return (
       <div>
         <Navbar />
-        <WelcomePage />
-        <ActivityPage />
-        <CalendarPage />
-        <MessagesPage />
+          <Switch>
+            <Route exact path='/' render={() =>
+              <WelcomePage />
+            }/>
+            <Route exact path='/activity' render={() =>
+              <ActivityPage />
+            }/>
+            <Route exact path='/calendar' render={() =>
+              <CalendarPage />
+            }/>
+            <Route exact path='/messages' render={() =>
+              <MessagesPage />
+            }/>
+          </Switch>
       </div>
     )
   }
