@@ -1,21 +1,25 @@
 const sampleData = [
   {
-    name: {
-      firstName: "Briana",
-      lastName: "Dacoscos"
-    },
+    firstName: "Briana",
+    lastName: "Dacoscos",
     posts: {
       content: "Laaaaame!",
       tags: [],
       images: [],
       comments: []
     },
-    name: {
-      firstName: "Jenny",
-      lastName: "Campbell"
-    },
+    firstName: "Jenny",
+    lastName: "Campbell",
     posts: {
       content: "Super cool.",
+      tags: [],
+      images: [],
+      comments: []
+    },
+    firstName: "Larry",
+    lastName: "David",
+    posts: {
+      content: "Pretty, pretty good.",
       tags: [],
       images: [],
       comments: []

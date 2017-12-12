@@ -1,9 +1,12 @@
 var mongoose = require('mongoose');
 var user = require('./User');
 var Schema = mongoose.Schema;
+var postSchema = require('./Post');
 
 var familySchema = new mongoose.Schema({
-  users: [{type: Schema.Types.ObjectId, ref: 'User'}]
+  name: String,
+  users: [{type: Schema.Types.ObjectId, ref: 'User'}],
+  posts: [postSchema]
 });
 
 module.exports = mongoose.model('Family', familySchema);

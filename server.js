@@ -15,7 +15,7 @@ app.use(logger('dev'));
 
 // Configure both serve-favicon & static middlewares
 // to serve from the production 'build' folder
-// app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(bodyParser.json());
@@ -24,7 +24,6 @@ app.use(bodyParser.json());
 
 // Put API routes here, before "catch all" route
 app.use('/', user)
-
 
 // The following "catch all" route is necessary for
 // a SPA's client-side routing to properly work
