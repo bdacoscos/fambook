@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 require('dotenv').config();
 require('./config/database');
 
+const user = require('./routes/users')
+
 var app = express();
 
 app.use(logger('dev'));
@@ -21,6 +23,8 @@ app.use(bodyParser.json());
 // Mount our custom auth middleware
 
 // Put API routes here, before "catch all" route
+app.use('/', user)
+
 
 // The following "catch all" route is necessary for
 // a SPA's client-side routing to properly work

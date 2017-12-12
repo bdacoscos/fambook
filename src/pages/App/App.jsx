@@ -10,6 +10,20 @@ import MessagesPage from './../MessagesPage/MessagesPage';
 import Navbar from '../../components/Navbar/Navbar';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      users: null
+    }
+  }
+
+  componentDidMount() {
+    fetch('/api/activity')
+      .then(jsonData => jsonData.json())
+      .then(users => this.setState({ users: users }))
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div>
@@ -19,7 +33,7 @@ class App extends Component {
               <WelcomePage />
             }/>
             <Route exact path='/activity' render={() =>
-              <ActivityPage />
+              <ActivityPage users={this.state.users}/>
             }/>
             <Route exact path='/calendar' render={() =>
               <CalendarPage />
