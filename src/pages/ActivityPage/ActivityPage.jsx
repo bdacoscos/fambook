@@ -1,9 +1,6 @@
 import React from 'react';
 
 const ActivityPage = (props) => {
-  console.log('props =', props)
-
-  // return (<div>hello</div>)
   return (
     <div>
       {

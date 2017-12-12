@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SignupForm = () => {
   return (
@@ -7,7 +8,7 @@ const SignupForm = () => {
       <form>
         <div>
           <input type="text" placeholder="Name"/>
-        </di>
+        </div>
         <div>
           <input type="email" placeholder="Name"/>
         </div>

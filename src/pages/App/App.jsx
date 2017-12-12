@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import WelcomePage from './../WelcomePage/WelcomePage';
 import LoginPage from './../LoginPage/LoginPage';
+import SignupPage from './../SignupPage/SignupPage';
 import ActivityPage from './../ActivityPage/ActivityPage';
 import CalendarPage from './../CalendarPage/CalendarPage';
 import MessagesPage from './../MessagesPage/MessagesPage';
