@@ -6,6 +6,7 @@ const WelcomePage = () => {
     <div>
       <h1>Welcome to FamBook!</h1>
       <Link to='/login'>Log In</Link>
+      &nbsp;&nbsp;&nbsp;&nbsp;
       <Link to='/signup'>Sign Up</Link>
     </div>
   )

@@ -36,6 +36,9 @@ class App extends Component {
             <Route exact path='/login' render={() =>
               <LoginPage />
             }/>
+            <Route exact path='/signup' render={() =>
+              <SignupPage />
+            }/>
             <Route exact path='/activity' render={() =>
               <ActivityPage users={this.state.users}/>
             }/>
