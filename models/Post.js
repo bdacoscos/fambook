@@ -6,7 +6,7 @@ var postSchema = new mongoose.Schema({
   content: String,
   tags: [String],
   images: [String],
-  user: [{type: Schema.Types.ObjectId, ref: 'User'}],
+  user: {type: Schema.Types.ObjectId, ref: 'User'},
   comments: [commentSchema]
 }, {
     timestamps: true

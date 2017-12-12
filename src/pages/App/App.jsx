@@ -4,6 +4,7 @@ import {
   Route
 } from 'react-router-dom';
 import WelcomePage from './../WelcomePage/WelcomePage';
+import LoginPage from './../LoginPage/LoginPage';
 import ActivityPage from './../ActivityPage/ActivityPage';
 import CalendarPage from './../CalendarPage/CalendarPage';
 import MessagesPage from './../MessagesPage/MessagesPage';
@@ -31,6 +32,9 @@ class App extends Component {
           <Switch>
             <Route exact path='/' render={() =>
               <WelcomePage />
+            }/>
+            <Route exact path='/login' render={() =>
+              <LoginPage />
             }/>
             <Route exact path='/activity' render={() =>
               <ActivityPage users={this.state.users}/>

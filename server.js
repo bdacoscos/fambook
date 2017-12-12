@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 require('dotenv').config();
 require('./config/database');
 
-const user = require('./routes/users')
+const user = require('./routes/api/users')
 
 var app = express();
 
@@ -24,6 +24,7 @@ app.use(bodyParser.json());
 
 // Put API routes here, before "catch all" route
 app.use('/api/users', require ('./routes/api/users'));
+app.use('/api/families', require ('./routes/api/families'));
 
 
 // The following "catch all" route is necessary for

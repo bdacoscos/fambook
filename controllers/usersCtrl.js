@@ -1,13 +1,16 @@
 var User = require('../models/User');
+var jwt = require('jsonwebtoken');
+const SECRET = process.env.SECRET;
 
-function index(req, res) {
-  console.log(`hello my name is dr green thumb`);
-  User.find({}, function(err, users) {
-    console.log(users)
-    res.json(users).status(200);
-  });
+function signup(req, res) {
+
+}
+
+function login(req, res) {
+
 }
 
 module.exports = {
-  index
+  signup,
+  login
 }
