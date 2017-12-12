@@ -23,7 +23,8 @@ app.use(bodyParser.json());
 // Mount our custom auth middleware
 
 // Put API routes here, before "catch all" route
-app.use('/', user)
+app.use('/api/users', require ('./routes/api/users'));
+
 
 // The following "catch all" route is necessary for
 // a SPA's client-side routing to properly work

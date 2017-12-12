@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://bri:bri@ds044667.mlab.com:44667/fambly');
+mongoose.connect(process.env.DATABASE_URL);
 
 const database = mongoose.connection;
 
