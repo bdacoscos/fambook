@@ -33,6 +33,10 @@ class App extends Component {
     this.setState({ user: userService.getUser() });
   }
 
+  handleJoin = () => {
+    this.setState({ user: userService.getUser() });
+  }
+
   handleLogin = () => {
     this.setState({ user: userService.getUser() });
   }
@@ -46,7 +50,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Navbar
           user={this.state.user}
           handleLogout={this.handleLogout}
@@ -70,7 +74,7 @@ class App extends Component {
             <Route exact path='/join' render={(props) =>
               <JoinFamilyPage
                 {...props}
-                // handleSignup={this.handleSignup}
+                handleJoin={this.handleJoin}
               />
             }/>
             <Route exact path='/activity' render={() => (

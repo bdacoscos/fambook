@@ -12,8 +12,10 @@ function index(req, res) {
 
 function joinFamily(req, res) {
   console.log(`I'm trying to join a family!`);
+  res.status(200);
 }
 
 module.exports = {
-  index
+  index,
+  joinFamily
 }
