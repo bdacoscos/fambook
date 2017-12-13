@@ -8,7 +8,9 @@ var familiesCtrl = require('./../../controllers/familiesCtrl');
 
 /*---------- Protected Routes ----------*/
 router.get('/', checkAuth, familiesCtrl.index);
-router.post('/join', checkAuth, familiesCtrl.joinFamily);
+// router.post('/join', familiesCtrl.joinFamily);
+router.post('/join', familiesCtrl.createFamily);
+
 
 
 /*----- Helper Functions -----*/

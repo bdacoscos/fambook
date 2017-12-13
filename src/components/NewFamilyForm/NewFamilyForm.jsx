@@ -10,7 +10,24 @@ class NewFamilyForm extends Component {
   }
 
   createNewFamily = (e) => {
-
+    console.log("the input says ",this.familyName.value);
+    fetch('/api/families/join', {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify({
+        name: this.familyName.value
+    })
+  })
+    .then(res => {
+      if (res.ok) return res.json();
+      throw new Error('Not authorized.');
+    })
+    .then(()=> {
+      this.props.history.push('/activity');
+    })
   }
 
   handleChange = (field, e) => {
@@ -37,12 +54,12 @@ class NewFamilyForm extends Component {
       <div className="col s12">
         <header>Create A New Family</header>
         <p>Start a new family!</p>
-        <form onSubmit={this.handleNewFamilySubmit}>
+        <form onSubmit={this.createNewFamily}>
           <input
             type="text"
             placeholder="Family Name"
-            value={this.state.name}
-            onChange={(e) => this.handleChange('name', e)}
+            // value={this.state.name}
+            ref={input => this.familyName = input}
           />
           <button>Create Family</button>
         </form>

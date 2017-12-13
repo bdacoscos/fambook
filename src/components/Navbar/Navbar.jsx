@@ -20,6 +20,9 @@ const Navbar = (props) => {
         <Link to="/messages">Messages</Link>
       </div>
       <div>
+        <Link to="/join">Join Page</Link>
+      </div>
+      <div>
         <Link to='' onClick={props.handleLogout}>LOG OUT</Link>
       </div>
     </div>

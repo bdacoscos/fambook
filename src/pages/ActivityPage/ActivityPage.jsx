@@ -15,7 +15,6 @@ class ActivityPage extends Component {
     // make fetch call for all the users of a family
     // then set state with data from api call
     // remember: this.setState({})...
-
     familiesAPI.index().then(users =>
       this.setState({ users })
     ).catch(err => {
@@ -27,8 +26,22 @@ class ActivityPage extends Component {
 
   render() {
     return (
-      <div>
-        <PostCard />
+      <div className="container">
+        <div className="row">
+          <div className="col s12">
+            <h1>Family Feed</h1>
+            <form>
+              <img src="" alt=""/>
+              <input type="text" placeholder="Create a post!"/>
+            </form>
+            <br/>
+            <br/>
+            <br/>
+          </div>
+          <div className="row">
+            <PostCard />
+          </div>
+        </div>
       </div>
     );
   }

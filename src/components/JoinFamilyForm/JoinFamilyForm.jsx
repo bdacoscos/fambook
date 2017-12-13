@@ -11,6 +11,9 @@ class JoinFamilyForm extends Component {
 
   checkFamilyCode = (e) => {
     // check if submitted code (id) exists in Family collection
+      // GET req to search db
+    console.log('in thr input it says', this.familyId.value);
+    fetch('/api/')
     // redirect to /activity
     this.props.history.push('/activity')
   }
@@ -35,7 +38,11 @@ class JoinFamilyForm extends Component {
             <header>Join An Existing Family</header>
               <p>Enter your family code below:</p>
               <form onSubmit={this.checkFamilyCode}>
-                <input type="text" placeholder="Family Code"/>
+                <input
+                  type="text"
+                  placeholder="Family Code"
+                  ref={input => this.familyId = input}
+                />
                 <button>Join Family</button>
               </form>
           </div>
