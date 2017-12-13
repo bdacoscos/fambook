@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SideNav from './../SideNav/SideNav';
 
 const Navbar = (props) => {
   let nav = props.user ?
