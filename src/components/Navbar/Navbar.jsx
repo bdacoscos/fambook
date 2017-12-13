@@ -1,25 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SideNav from './../SideNav/SideNav';
 
-const Navbar = () => {
-  return (
+const Navbar = (props) => {
+  let nav = props.user ?
     <div>
+      <span className='NavBar-welcome'>
+        WELCOME, {props.user.firstName}!
+      </span>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <div>
         <Link to="/activity">Activity</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+      <div>
         <Link to="/calendar">Calendar</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+      <div>
         <Link to="/messages">Messages</Link>
       </div>
       <div>
-        <Link to="">Log Out</Link>
-        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-        <span>
-          WELCOME, User!
-        </span>
+        <Link to='' onClick={props.handleLogout}>LOG OUT</Link>
       </div>
     </div>
-  )
-}
+    :
+    <div>
+      <Link to='/login'>LOG IN</Link>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <Link to='/signup'>SIGN UP</Link>
+    </div>;
+
+  return (
+    <div>
+      {nav}
+    </div>
+  );
+};
+
 
 export default Navbar;

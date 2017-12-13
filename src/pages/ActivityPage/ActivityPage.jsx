@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PostCard from './../../components/PostCard/PostCard';
+import familiesAPI from '../../utils/familiesAPI';
 
-const ActivityPage = (props) => {
-  return (
-    <div>
-      {
-        props.users ?
-          props.users.map((user, idx) => <p key={idx}>{user.firstName}</p>)
-          :
-          <h1>Loading...</h1>
-      }
-    </div>
-  )
+
+class ActivityPage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      users: []
+    }
+  }
+
+  componentDidMount() {
+    // make fetch call for all the users of a family
+    // then set state with data from api call
+    // remember: this.setState({})...
+
+    familiesAPI.index().then(users =>
+      this.setState({ users })
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        <PostCard />
+      </div>
+    );
+  }
 }
 
 export default ActivityPage;

@@ -13,6 +13,9 @@ function signup(user) {
     .then((data) => data.token);
 }
 
+/*----- Helper Functions -----*/
+
+
 function login(creds) {
   return fetch(BASE_URL + 'login', {
     method: 'POST',

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   Switch,
+  Redirect,
   Route
 } from 'react-router-dom';
 import WelcomePage from './../WelcomePage/WelcomePage';
@@ -10,39 +11,67 @@ import ActivityPage from './../ActivityPage/ActivityPage';
 import CalendarPage from './../CalendarPage/CalendarPage';
 import MessagesPage from './../MessagesPage/MessagesPage';
 import Navbar from '../../components/Navbar/Navbar';
+import userService from '../../utils/userService';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      users: null
+      user: null
     }
   }
 
+/*---------- Event Handlers ----------*/
+
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null });
+  }
+
+  handleSignup = () => {
+    this.setState({ user: userService.getUser() });
+  }
+
+  handleLogin = () => {
+    this.setState({ user: userService.getUser() });
+  }
+
+/*----------  Lifecycle Methods ----------*/
+
   componentDidMount() {
-    fetch('/api/activity')
-      .then(jsonData => jsonData.json())
-      .then(users => this.setState({ users: users }))
-      .catch(err => console.log(err))
+    let user = userService.getUser();
+    this.setState({user});
   }
 
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar
+          user={this.state.user}
+          handleLogout={this.handleLogout}
+        />
           <Switch>
             <Route exact path='/' render={() =>
               <WelcomePage />
             }/>
-            <Route exact path='/login' render={() =>
-              <LoginPage />
+            <Route exact path='/login' render={(props) =>
+              <LoginPage
+                {...props}
+                handleLogin={this.handleLogin}
+              />
             }/>
-            <Route exact path='/signup' render={() =>
-              <SignupPage />
+            <Route exact path='/signup' render={(props) =>
+              <SignupPage
+                {...props}
+                handleSignup={this.handleSignup}
+              />
             }/>
-            <Route exact path='/activity' render={() =>
-              <ActivityPage users={this.state.users}/>
-            }/>
+            <Route exact path='/activity' render={() => (
+              userService.getUser() ?
+                <ActivityPage users={this.state.users}/>
+                :
+                <Redirect to='/login' />
+              )} />
             <Route exact path='/calendar' render={() =>
               <CalendarPage />
             }/>
@@ -51,7 +80,7 @@ class App extends Component {
             }/>
           </Switch>
       </div>
-    )
+    );
   }
 }
 
