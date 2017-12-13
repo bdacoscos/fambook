@@ -7,6 +7,7 @@ import {
 import WelcomePage from './../WelcomePage/WelcomePage';
 import LoginPage from './../LoginPage/LoginPage';
 import SignupPage from './../SignupPage/SignupPage';
+import JoinFamilyPage from './../JoinFamilyPage/JoinFamilyPage';
 import ActivityPage from './../ActivityPage/ActivityPage';
 import CalendarPage from './../CalendarPage/CalendarPage';
 import MessagesPage from './../MessagesPage/MessagesPage';
@@ -64,6 +65,12 @@ class App extends Component {
               <SignupPage
                 {...props}
                 handleSignup={this.handleSignup}
+              />
+            }/>
+            <Route exact path='/join' render={(props) =>
+              <JoinFamilyPage
+                {...props}
+                // handleSignup={this.handleSignup}
               />
             }/>
             <Route exact path='/activity' render={() => (

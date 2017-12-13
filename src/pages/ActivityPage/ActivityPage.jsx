@@ -18,7 +18,11 @@ class ActivityPage extends Component {
 
     familiesAPI.index().then(users =>
       this.setState({ users })
-    );
+    ).catch(err => {
+      // refactor to redirect to login page
+      // this.props.history.push('/login');
+      console.log('bad token, should redirect');
+    });
   }
 
   render() {

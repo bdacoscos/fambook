@@ -8,7 +8,7 @@ function index() {
       if (res.ok) return res.json();
       throw new Error('Bad credentials');
     })
-    .then(scores => scores);
+    .then(creds => creds);
 }
 
 /*----- Helper Functions -----*/
