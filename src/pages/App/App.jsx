@@ -18,7 +18,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: null
+      user: null,
+      name: '' // family name
     }
   }
 
@@ -34,7 +35,7 @@ class App extends Component {
   }
 
   handleJoin = () => {
-    this.setState({ user: userService.getUser() });
+    this.setState({ name: userService.getUser() });
   }
 
   handleLogin = () => {

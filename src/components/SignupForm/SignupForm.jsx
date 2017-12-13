@@ -43,19 +43,39 @@ class SignupForm extends Component {
         <header>Sign Up</header>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <input type="text" placeholder="First Name" value={this.state.firstName} onChange={(e) => this.handleChange('firstName', e)} />
+            <input
+              type="text"
+              placeholder="First Name"
+              value={this.state.firstName}
+              onChange={(e) => this.handleChange('firstName', e)} />
           </div>
           <div>
-            <input type="text" placeholder="Last Name" value={this.state.lastName} onChange={(e) => this.handleChange('lastName', e)} />
+            <input
+              type="text"
+              placeholder="Last Name"
+              value={this.state.lastName}
+              onChange={(e) => this.handleChange('lastName', e)} />
           </div>
           <div>
-            <input type="email" placeholder="Email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
+            <input
+              type="email"
+              placeholder="Email"
+              value={this.state.email}
+              onChange={(e) => this.handleChange('email', e)} />
           </div>
           <div>
-            <input type="password" placeholder="Password" value={this.state.password} onChange={(e) => this.handleChange('password', e)} />
+            <input
+              type="password"
+              placeholder="Password"
+              value={this.state.password}
+              onChange={(e) => this.handleChange('password', e)} />
           </div>
           <div>
-            <input type="password" placeholder="Confirm Password" value={this.state.passwordConf} onChange={(e) => this.handleChange('passwordConf', e)} />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={this.state.passwordConf}
+              onChange={(e) => this.handleChange('passwordConf', e)} />
           </div>
           <div>
             <button disabled={this.isFormInvalid()}>

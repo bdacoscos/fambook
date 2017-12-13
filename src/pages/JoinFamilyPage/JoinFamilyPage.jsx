@@ -10,10 +10,15 @@ class JoinFamilyPage extends Component {
   updateMessage = (msg) => {
     this.setState({ message: msg });
   }
+
   render() {
     return (
       <div>
-        <JoinFamilyForm />
+        <JoinFamilyForm
+          {...this.props}
+          updateMessage={this.updateMessage}
+          handleJoin={this.props.handleJoin}
+        />
         <p>{this.state.message}</p>
       </div>
     )
