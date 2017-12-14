@@ -13,6 +13,19 @@ function index() {
 
 /*----- Helper Functions -----*/
 
+function createNewFamily(family) {
+  return fetch(BASE_URL + 'join', {
+    method: 'POST',
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    }),
+    body: JSON.stringify(family)
+  })
+    .then(res => {
+      if (res.ok) return res.json();
+    });
+}
+
 function getAuthRequestOptions(method) {
   return {
     method: method,
@@ -21,5 +34,6 @@ function getAuthRequestOptions(method) {
 }
 
 export default {
-  index
+  index,
+  createNewFamily
 };

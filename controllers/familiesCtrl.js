@@ -12,19 +12,13 @@ function index(req, res) {
 
 function joinFamily(req, res) {
   // check if inputted family id exists, if so join fam
-  console.log(`I'm trying to join a family!`);
-  console.log("reqw.body!!", req.body);
-  res.status(200);
 }
 
 function createFamily(req, res) {
   var family = new Family(req.body);
-  family.save((err, createdFamily) => {
-    if (err) {
-      return res.status(500).json(err);
-    }
-    return res.status(200).json({createdFamily});
-  })
+  family.save().then(fam => {
+    res.json({fam});
+  }).catch(err => res.json(400).json(err));
 }
 
 module.exports = {

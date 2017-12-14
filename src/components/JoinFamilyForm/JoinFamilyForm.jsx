@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 class JoinFamilyForm extends Component {
   constructor(props) {
@@ -11,23 +11,15 @@ class JoinFamilyForm extends Component {
 
   checkFamilyCode = (e) => {
     // check if submitted code (id) exists in Family collection
-      // GET req to search db
-    console.log('in thr input it says', this.familyId.value);
-    fetch('/api/')
+      // (GET req to search db)
     // redirect to /activity
     this.props.history.push('/activity')
   }
 
-
   handleChange = (field, e) => {
-    // this.props.updateMessage('');
     this.setState({
       [field]: e.target.value
     });
-  }
-
-  componentDidMount() {
-    // this.checkFamilyCode();
   }
 
   render() {

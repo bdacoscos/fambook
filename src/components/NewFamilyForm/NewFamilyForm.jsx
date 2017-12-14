@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import familiesAPI from './../../utils/familiesAPI';
 
 class NewFamilyForm extends Component {
   constructor(props) {
@@ -9,47 +10,21 @@ class NewFamilyForm extends Component {
     };
   }
 
-  createNewFamily = () => {
-    var url = '/api/families/join';
-    var data = {
-      name: this.familyName.value
-    };
-    var request = new Request(url, {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: new Headers({
-        'Content-Type': 'application/json'
+  handleNewFam = (e) => {
+    e.preventDefault();
+    familiesAPI.createNewFamily(this.state)
+      .then(()=> {
+        this.props.history.push('/')
       })
-    });
-
-    fetch(request)
-    console.log(request)
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(json){
-        return json();
-      });
-    console.log('still inside createNewFam, but outside of Fetch');
   }
 
   handleChange = (field, e) => {
-    // this.props.updateMessage('');
     this.setState({
       [field]: e.target.value
     });
   }
 
-  // handleNewFamilySubmit
-  handleNewFamilySubmit = (e) => {
-    e.preventDefault();
-    this.props.handleJoin();
-    // display the newFamilyCode div
-    console.log('name is now= ', this.state.name);
-  }
-
   componentDidMount() {
-
   }
 
   render() {
@@ -57,15 +32,15 @@ class NewFamilyForm extends Component {
       <div className="col s12">
         <header>Create A New Family</header>
         <p>Start a new family!</p>
-        <form onSubmit={this.createNewFamily}>
+        <form onSubmit={this.handleNewFam}>
           <input
             type="text"
             placeholder="Family Name"
-            ref={input => this.familyName = input}
+            onChange={(e) => this.handleChange('name', e)}
+            value={this.state.name}
           />
-          <button>Create Family</button>
+          <button type="submit">Create Family</button>
         </form>
-
 
         <div className="newFamilyCode">
           Great, you created the {this.state.name} family!

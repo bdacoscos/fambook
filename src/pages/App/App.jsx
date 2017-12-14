@@ -34,10 +34,6 @@ class App extends Component {
     this.setState({ user: userService.getUser() });
   }
 
-  handleJoin = () => {
-    this.setState({ name: userService.getUser() });
-  }
-
   handleLogin = () => {
     this.setState({ user: userService.getUser() });
   }

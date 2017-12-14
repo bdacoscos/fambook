@@ -23,7 +23,9 @@ class JoinFamilyPage extends Component {
             />
           </div>
           <div className="col s6">
-            <NewFamilyForm />
+            <NewFamilyForm
+              {...this.props}
+            />
           </div>
         </div>
         <p>{this.state.message}</p>
