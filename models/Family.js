@@ -7,7 +7,7 @@ var familySchema = new mongoose.Schema({
   name: String,
   familyCode: String,
   users: [{type: Schema.Types.ObjectId, ref: 'User'}],
-  posts: [postSchema]
+  posts: [{type: Schema.Types.ObjectId, ref: 'Post'}]
 });
 
 module.exports = mongoose.model('Family', familySchema);

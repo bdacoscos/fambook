@@ -1,5 +1,5 @@
 var Post = require('./../models/Post');
-var Family = require('./../models/Family');
+// var Family = require('./../models/Family');
 
 function indexFamilyPosts(req, res) {
   // INDEX ALL FAMILY POSTS FOR CURRENT USER'S FAMILY
@@ -13,9 +13,22 @@ function indexFamilyPosts(req, res) {
 
 }
 
+// function joinFamily(req, res) {
+//   Family.findOne({ familyCode: req.body.familyCode }).then((fam => {
+//     fam.users.push(req.body._id);
+//     fam.save();
+//     res.json(fam);
+//   }));
+// }
+
 
 function createPost(req, res) {
+  console.log('createPost in postsCtrl hit');
   var newPost = new Post(req.body);
+  newPost.save().then( post => {
+    res.json(post);
+  }).catch(err => res.json(400).json(err));
+
 
   // grab current user's id -> put into 'authorId'
 

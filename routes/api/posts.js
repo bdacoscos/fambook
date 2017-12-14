@@ -7,8 +7,8 @@ var postsCtrl = require('./../../controllers/postsCtrl');
 
 
 /*---------- Protected Routes ----------*/
-router.get('/post', postsCtrl.indexFamilyPosts);
-router.post('/post', postsCtrl.createPost);
+router.get('/', postsCtrl.indexFamilyPosts);
+router.post('/', postsCtrl.createPost);
 
 
 

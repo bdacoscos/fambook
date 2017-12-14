@@ -7,13 +7,15 @@ class PostForm extends Component {
     super(props);
     this.state = {
       content: ''
-    }
+    };
   }
 
-  handleSubmit = (e) => {
+  handleNewPost = (e) => {
     e.preventDefault();
-    console.log(this.state);
-    // postsAPI.createNewPost(this.state);
+    postsAPI.createNewPost(this.state)
+      .then((post) => {
+        console.log(post);
+      })
   }
 
   handleChange = (field, e) => {
@@ -24,23 +26,20 @@ class PostForm extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col s12">
+      <div className="row">
+        <div className="col s12">
 
-            <header>New Post</header>
-            <form onSubmit={this.handleSubmit}>
-              <div>
-                <input
-                  type="text"
-                  placeholder="Tell me what you're thinking."
-                  value={this.state.content}
-                  onChange={(e) => this.handleChange('content', e)}
-                />
-              </div>
-              <button type="submit">Submit Post</button>
-            </form>
-          </div>
+          <form onSubmit={this.handleNewPost}>
+            <div>
+              <input
+                type="text"
+                placeholder="Post something!"
+                value={this.state.content}
+                onChange={(e) => this.handleChange('content', e)}
+              />
+            </div>
+            <button type="submit">Submit Post</button>
+          </form>
         </div>
       </div>
     )

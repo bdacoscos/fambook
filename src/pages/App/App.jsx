@@ -18,8 +18,8 @@ class App extends Component {
     super();
     this.state = {
       family: null,
-      user: null
-      // name: '' // family name
+      user: null,
+
     }
   }
 

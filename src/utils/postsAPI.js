@@ -1,4 +1,5 @@
 import tokenService from './tokenService';
+import userService from './../utils/userService';
 
 const BASE_URL = '/api/posts/';
 
@@ -15,12 +16,13 @@ function index() {
 /*----- Helper Functions -----*/
 
 function createNewPost(post) {
-  return fetch(BASE_URL + 'post', {
+  console.log(post);
+  return fetch(BASE_URL, {
     method: 'POST',
     headers: new Headers({
       'Content-Type': 'application/json'
     }),
-    body: JSON.stringify(post)
+    body: JSON.stringify({...post, ...userService.getUser() })
   })
     .then(res => {
       if (res.ok) return res.json();
