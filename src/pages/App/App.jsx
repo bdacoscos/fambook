@@ -9,8 +9,6 @@ import LoginPage from './../LoginPage/LoginPage';
 import SignupPage from './../SignupPage/SignupPage';
 import JoinFamilyPage from './../JoinFamilyPage/JoinFamilyPage';
 import ActivityPage from './../ActivityPage/ActivityPage';
-import CalendarPage from './../CalendarPage/CalendarPage';
-import MessagesPage from './../MessagesPage/MessagesPage';
 import Navbar from '../../components/Navbar/Navbar';
 import userService from '../../utils/userService';
 
@@ -87,12 +85,6 @@ class App extends Component {
                 :
                 <Redirect to='/login' />
               )} />
-            <Route exact path='/calendar' render={() =>
-              <CalendarPage />
-            }/>
-            <Route exact path='/messages' render={() =>
-              <MessagesPage />
-            }/>
           </Switch>
       </div>
     );
