@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
 import { Link } from  'react-router-dom';
+import postsAPI from './../../utils/postsAPI';
 
-class PostFormPage extends Component {
+class PostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: '',
-      tags: []
+      content: ''
     }
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+    // postsAPI.createNewPost(this.state);
+  }
+
+  handleChange = (field, e) => {
+    this.setState({
+      [field]: e.target.value
+    });
   }
 
   render() {
@@ -17,29 +29,17 @@ class PostFormPage extends Component {
           <div className="col s12">
 
             <header>New Post</header>
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <div>
                 <input
                   type="text"
                   placeholder="Tell me what you're thinking."
+                  value={this.state.content}
+                  onChange={(e) => this.handleChange('content', e)}
                 />
               </div>
-              <div>
-                <input
-                  type="text"
-                  placeholder="Post an image link!"
-                />
-              </div>
-              <div>
-                <input
-                  type="text"
-                  placeholder="Tags"
-                />
-              </div>
-              <button>Submit Post</button>
+              <button type="submit">Submit Post</button>
             </form>
-
-
           </div>
         </div>
       </div>
@@ -48,4 +48,4 @@ class PostFormPage extends Component {
 };
 
 
-export default PostFormPage;
+export default PostForm;

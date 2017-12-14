@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PostCards from './../../components/PostCards/PostCards';
+import PostForm from './../../components/PostForm/PostForm';
 import familiesAPI from '../../utils/familiesAPI';
 
 
@@ -30,7 +31,12 @@ class ActivityPage extends Component {
           <div className="col s12">
             <h1>Family Feed</h1>
             <p>What are you up to?</p>
-            <Link to='/post'>Make a post!</Link>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col s12">
+            <PostForm />
           </div>
         </div>
 

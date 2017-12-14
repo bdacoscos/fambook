@@ -5,11 +5,6 @@ import NewFamilyForm from './../../components/NewFamilyForm/NewFamilyForm';
 class JoinFamilyPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {message: ''}
-  }
-
-  updateMessage = (msg) => {
-    this.setState({ message: msg });
   }
 
   render() {
@@ -19,7 +14,6 @@ class JoinFamilyPage extends Component {
           <div className="col s6">
             <JoinFamilyForm
               {...this.props}
-              updateMessage={this.updateMessage}
             />
           </div>
           <div className="col s6">
@@ -28,7 +22,6 @@ class JoinFamilyPage extends Component {
             />
           </div>
         </div>
-        <p>{this.state.message}</p>
       </div>
     )
   }

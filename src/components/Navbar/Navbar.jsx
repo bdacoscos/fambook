@@ -12,13 +12,7 @@ const Navbar = (props) => {
         <Link to="/activity">Activity</Link>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </div>
-      <div>
-        <Link to="/calendar">Calendar</Link>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </div>
-      <div>
-        <Link to="/messages">Messages</Link>
-      </div>
+
       <div>
         <Link to="/join">Join Page</Link>
       </div>

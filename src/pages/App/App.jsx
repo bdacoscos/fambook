@@ -10,7 +10,6 @@ import LoginPage from './../LoginPage/LoginPage';
 import SignupPage from './../SignupPage/SignupPage';
 import JoinFamilyPage from './../JoinFamilyPage/JoinFamilyPage';
 import ActivityPage from './../ActivityPage/ActivityPage';
-import PostFormPage from './../PostFormPage/PostFormPage';
 import Navbar from '../../components/Navbar/Navbar';
 import userService from '../../utils/userService';
 
@@ -86,10 +85,6 @@ class App extends Component {
                 <ActivityPage users={this.state.users}/>
                 :
                 <Redirect to='/login' />
-              )}
-              />
-            <Route exact path='/post' render={() => (
-              <PostFormPage />
               )}
             />
           </Switch>

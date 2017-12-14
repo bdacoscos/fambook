@@ -15,9 +15,7 @@ class SignupForm extends Component {
   }
 
   handleChange = (field, e) => {
-    this.props.updateMessage('');
     this.setState({
-      // Using ES2015 Computed Property Names
       [field]: e.target.value
     });
   }
@@ -30,7 +28,7 @@ class SignupForm extends Component {
         // below, on submit, redirect to JoinFamilyPage
         this.props.history.push('/join');
       })
-      .catch(err => this.props.updateMessage(err.message));
+      ;
   }
 
   isFormInvalid() {
