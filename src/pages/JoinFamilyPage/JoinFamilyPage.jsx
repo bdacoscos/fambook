@@ -20,7 +20,6 @@ class JoinFamilyPage extends Component {
             <JoinFamilyForm
               {...this.props}
               updateMessage={this.updateMessage}
-              handleJoin={this.props.handleJoin}
             />
           </div>
           <div className="col s6">

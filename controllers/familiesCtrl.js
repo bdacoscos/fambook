@@ -21,9 +21,9 @@ function createFamily(req, res) {
   var family = new Family(req.body);
   family.save((err, createdFamily) => {
     if (err) {
-      return res.status(500).send(err);
+      return res.status(500).json(err);
     }
-    return res.status(200).send(createdFamily);
+    return res.status(200).json({createdFamily});
   })
 }
 

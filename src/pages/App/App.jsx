@@ -75,7 +75,6 @@ class App extends Component {
             <Route exact path='/join' render={(props) =>
               <JoinFamilyPage
                 {...props}
-                handleJoin={this.handleJoin}
               />
             }/>
             <Route exact path='/activity' render={() => (

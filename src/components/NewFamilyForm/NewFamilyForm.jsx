@@ -9,25 +9,28 @@ class NewFamilyForm extends Component {
     };
   }
 
-  createNewFamily = (e) => {
-    console.log("the input says ",this.familyName.value);
-    fetch('/api/families/join', {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-type": "application/json"
-      },
-      body: JSON.stringify({
-        name: this.familyName.value
-    })
-  })
-    .then(res => {
-      if (res.ok) return res.json();
-      throw new Error('Not authorized.');
-    })
-    .then(()=> {
-      this.props.history.push('/activity');
-    })
+  createNewFamily = () => {
+    var url = '/api/families/join';
+    var data = {
+      name: this.familyName.value
+    };
+    var request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    });
+
+    fetch(request)
+    console.log(request)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(json){
+        return json();
+      });
+    console.log('still inside createNewFam, but outside of Fetch');
   }
 
   handleChange = (field, e) => {
@@ -58,11 +61,12 @@ class NewFamilyForm extends Component {
           <input
             type="text"
             placeholder="Family Name"
-            // value={this.state.name}
             ref={input => this.familyName = input}
           />
           <button>Create Family</button>
         </form>
+
+
         <div className="newFamilyCode">
           Great, you created the {this.state.name} family!
             Give this unique code to family members so they can join your family:
