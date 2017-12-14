@@ -30,13 +30,8 @@ class ActivityPage extends Component {
         <div className="row">
           <div className="col s12">
             <h1>Family Feed</h1>
-            <form>
-              <img src="" alt=""/>
-              <input type="text" placeholder="Create a post!"/>
-            </form>
-            <br/>
-            <br/>
-            <br/>
+            <p>What are you up to?</p>
+            <button>Make a post!</button>
           </div>
           <div className="row">
             <PostCard />

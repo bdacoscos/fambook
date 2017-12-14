@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var familiesCtrl = require('./../../controllers/familiesCtrl');
+var postsCtrl = require('./../../controllers/postsCtrl');
 
 /*---------- Public Routes ----------*/
 // None, need to be logged in to see anything!!
 
 
 /*---------- Protected Routes ----------*/
-router.get('/', familiesCtrl.index);
-router.post('/join', familiesCtrl.createFamily);
+router.get('/post', postsCtrl.indexFamilyPosts);
+router.post('/post', postsCtrl.createPost);
 
 
 

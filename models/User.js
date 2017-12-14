@@ -6,6 +6,7 @@ const SALT_ROUNDS = 6;
 var userSchema = new mongoose.Schema({
   firstName: {type: String, required: true},
   lastName: {type: String, required: true},
+  authorId: String,
   password: String,
   email: {type: String, required: true, lowercase: true, unique: true},
 }, {
