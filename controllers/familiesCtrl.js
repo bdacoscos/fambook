@@ -3,9 +3,7 @@ var User = require('./../models/User');
 
 
 function index(req, res) {
-  console.log('familiesCtrl.index being hit');
   Family.find({}).then(fam => {
-    console.log(fam);
     res.json(fam);
   })
 

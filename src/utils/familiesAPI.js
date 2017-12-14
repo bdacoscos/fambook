@@ -28,7 +28,6 @@ function createNewFamily(family) {
 }
 
 function checkFamilyCode(code) {
-  console.log('checkFamilyCode in familiesAPI - hit');
   return fetch(BASE_URL + 'joinFamily', {
     method: 'POST',
     headers: new Headers({

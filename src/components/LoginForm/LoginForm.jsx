@@ -19,7 +19,6 @@ class LoginForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('handleSubmit working');
     userService.login(this.state)
       .then(() => {
         this.props.handleLogin();

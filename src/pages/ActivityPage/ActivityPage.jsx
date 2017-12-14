@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PostCard from './../../components/PostCard/PostCard';
+import { Link } from 'react-router-dom';
+import PostCards from './../../components/PostCards/PostCards';
 import familiesAPI from '../../utils/familiesAPI';
 
 
@@ -12,9 +13,6 @@ class ActivityPage extends Component {
   }
 
   componentDidMount() {
-    // make fetch call for all the users of a family
-    // then set state with data from api call
-    // remember: this.setState({})...
     familiesAPI.index().then(users =>
       this.setState({ users })
     ).catch(err => {
@@ -27,16 +25,21 @@ class ActivityPage extends Component {
   render() {
     return (
       <div className="container">
+
         <div className="row">
           <div className="col s12">
             <h1>Family Feed</h1>
             <p>What are you up to?</p>
-            <button>Make a post!</button>
-          </div>
-          <div className="row">
-            <PostCard />
+            <Link to='/post'>Make a post!</Link>
           </div>
         </div>
+
+        <div className="row">
+          <div className="col s12">
+            <PostCards />
+          </div>
+        </div>
+
       </div>
     );
   }

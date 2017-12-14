@@ -5,9 +5,9 @@ var Schema = mongoose.Schema;
 var postSchema = new mongoose.Schema({
   content: String,
   tags: [String],
-  images: [String],
+  // images: [String],
   user: {type: Schema.Types.ObjectId, ref: 'User'},
-  comments: [commentSchema]
+  // comments: [commentSchema]
 }, {
     timestamps: true
   }
