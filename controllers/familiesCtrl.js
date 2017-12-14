@@ -1,4 +1,5 @@
 var Family = require('./../models/Family');
+var User = require('./../models/User');
 
 
 function index(req, res) {
@@ -11,8 +12,11 @@ function index(req, res) {
 }
 
 function joinFamily(req, res) {
-  // check if inputted family id exists, if so join fam
-
+  Family.findOne({ familyCode: req.body.familyCode }).then((fam => {
+    fam.users.push(req.body._id);
+    fam.save();
+    res.json(fam);
+  }));
 }
 
 function createFamily(req, res) {

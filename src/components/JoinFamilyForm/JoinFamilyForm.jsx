@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import familiesAPI from './../../utils/familiesAPI';
 
 class JoinFamilyForm extends Component {
@@ -12,15 +11,8 @@ class JoinFamilyForm extends Component {
 
   handleFamCheck = (e) => {
     e.preventDefault();
-    console.log(this.state);
-    // check if submitted code (id) exists in Family collection
-      // (GET req to search db)
-    // redirect to /activity
     familiesAPI.checkFamilyCode(this.state)
-      .then((data)=> {
-        // below is the query object: ALL FAMILIES
-        console.log(data);
-        console.log(this.state);
+      .then((family)=> {
         this.props.history.push('/activity')
       })
   }
