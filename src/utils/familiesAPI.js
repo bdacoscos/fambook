@@ -26,6 +26,20 @@ function createNewFamily(family) {
     });
 }
 
+function checkFamilyCode(code) {
+  console.log('checkFamilyCode in familiesAPI - hit');
+  return fetch(BASE_URL, {
+    method: 'GET',
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    })
+    // body: JSON.stringify(code)
+  })
+    .then(res => {
+      if (res.ok) return res.json();
+    });
+}
+
 function getAuthRequestOptions(method) {
   return {
     method: method,
@@ -35,5 +49,6 @@ function getAuthRequestOptions(method) {
 
 export default {
   index,
-  createNewFamily
+  createNewFamily,
+  checkFamilyCode
 };

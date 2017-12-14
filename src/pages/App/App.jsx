@@ -18,8 +18,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: null,
-      name: '' // family name
+      family: null,
+      user: null
+      // name: '' // family name
     }
   }
 
@@ -42,7 +43,11 @@ class App extends Component {
 
   componentDidMount() {
     let user = userService.getUser();
-    this.setState({user});
+    let findFamily = fetch('/api/families').then(res => res.json());
+    Promise.all([user, findFamily]).then((data) => {
+      console.log(data);
+      this.setState({user: data[0], family: data[1]});
+    })
   }
 
   render() {
@@ -54,7 +59,10 @@ class App extends Component {
         />
           <Switch>
             <Route exact path='/' render={() =>
-              <WelcomePage />
+              <WelcomePage
+                user={this.state.user}
+                family={this.state.family}
+              />
             }/>
             <Route exact path='/login' render={(props) =>
               <LoginPage

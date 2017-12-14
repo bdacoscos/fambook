@@ -6,15 +6,18 @@ class NewFamilyForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ''
+      name: '',
+      familyCode: ''
     };
   }
 
   handleNewFam = (e) => {
     e.preventDefault();
     familiesAPI.createNewFamily(this.state)
-      .then(()=> {
-        this.props.history.push('/')
+      .then((family)=> {
+        this.setState({
+          familyCode: family.familyCode
+        })
       })
   }
 
@@ -42,12 +45,17 @@ class NewFamilyForm extends Component {
           <button type="submit">Create Family</button>
         </form>
 
-        <div className="newFamilyCode">
-          Great, you created the {this.state.name} family!
+        {this.state.familyCode === '' ?
+          <div></div>
+          :
+          <div className="newFamilyCode">
+            Great, you created the {this.state.name} family!
             Give this unique code to family members so they can join your family:
-            <p>5asd7897snljsdf87I'mAFakeCode0dg89</p>
-          Go to <Link to="/activity">Activity Page</Link>
-        </div>
+            <p>{this.state.familyCode}</p>
+            Go to <Link to="/activity">Activity Page</Link>
+          </div>
+        }
+
       </div>
     )
   }
