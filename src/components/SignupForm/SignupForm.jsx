@@ -25,7 +25,6 @@ class SignupForm extends Component {
     userService.signup(this.state)
       .then(()=> {
         this.props.handleSignup();
-        // below, on submit, redirect to JoinFamilyPage
         this.props.history.push('/join');
       })
       ;
