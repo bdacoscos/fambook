@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import familiesAPI from './../../utils/familiesAPI';
 
 class JoinFamilyForm extends Component {
@@ -11,11 +12,9 @@ class JoinFamilyForm extends Component {
 
   handleFamCheck = (e) => {
     e.preventDefault();
-    console.log(this.state);
     familiesAPI.checkFamilyCode(this.state)
       .then((family)=> {
-        console.log(family);
-        // this.state.history.push('/activity')
+        this.props.history.push('/activity')
       })
   }
 
@@ -29,8 +28,8 @@ class JoinFamilyForm extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col s12">
-            <header>Join An Existing Family</header>
+          <div className="col s12  medium-margins">
+            <header className="arvo-font bigger-font">Join A Family</header>
               <p>Enter your family code below:</p>
               <form onSubmit={this.handleFamCheck}>
                 <input
@@ -38,7 +37,7 @@ class JoinFamilyForm extends Component {
                   placeholder="Family Code"
                   onChange={(e) => this.handleChange('familyCode', e)}
                 />
-                <button>Join Family</button>
+              <button className="waves-effect waves-light btn red lighten-1">Join Family</button>
               </form>
           </div>
         </div>

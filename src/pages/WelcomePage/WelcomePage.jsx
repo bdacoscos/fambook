@@ -2,8 +2,8 @@ import React from 'react';
 
 const WelcomePage = () => {
   return (
-    <div>
-      <h1>Welcome to FamBook!</h1>
+    <div className="container center-align arvo-font">
+      <h1 className="big-margins">Welcome to FamBook!</h1>
     </div>
   )
 }

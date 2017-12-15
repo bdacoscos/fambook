@@ -43,14 +43,13 @@ class App extends Component {
     let findFamily = fetch('/api/families').then(res => res.json());
     let allPosts = fetch('/api/posts').then(res => res.json());
     Promise.all([user, findFamily, allPosts]).then((data) => {
-      console.log(data);
       this.setState({user: data[0], family: data[1], post: data[2]});
     })
   }
 
   render() {
     return (
-      <div className="container">
+      <div>
         <Navbar
           user={this.state.user}
           handleLogout={this.handleLogout}

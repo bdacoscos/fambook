@@ -1,5 +1,44 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  background-image: url('https://i.imgur.com/odgHUL9.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.white-bg {
+  background-color: rgb(247, 247, 247);
+}
+
+.arvo-font {
+  font-family: 'Arvo', serif;
+}
+
+.bigger-font {
+  font-size: 35px;
+}
+
+.med-font {
+  font-size: 20px;
+}
+
+.big-margins {
+  margin: 200px 0;
+}
+
+.medium-margins {
+  margin: 100px 0;
+}
+
+.margin-bottom {
+  margin-bottom: 50px;
+}
+
+.margin-top {
+  margin-top: 50px;
+}
+
+.padding {
+  padding: 10px;
 }

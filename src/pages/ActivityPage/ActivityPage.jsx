@@ -16,8 +16,6 @@ class ActivityPage extends Component {
     familiesAPI.index().then(users =>
       this.setState({ users })
     ).catch(err => {
-      // refactor to redirect to login page
-      // this.props.history.push('/login');
       console.log('bad token, should redirect');
     });
   }
@@ -28,8 +26,8 @@ class ActivityPage extends Component {
 
         <div className="row">
           <div className="col s12">
-            <h1>Family Feed</h1>
-            <p>What are you up to?</p>
+            <h1 className="arvo-font">Family Feed</h1>
+            <p className="bigger-font">What are you up to?</p>
           </div>
         </div>
 

@@ -3,29 +3,45 @@ import { Link } from 'react-router-dom';
 
 const Navbar = (props) => {
   let nav = props.user ?
-    <div>
-      <span>
-        WELCOME, {props.user.firstName}!
-      </span>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <div>
-        <Link to="/activity">Activity</Link>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      </div>
-
-      <div>
-        <Link to="/join">Join Page</Link>
-      </div>
-      <div>
-        <Link to='' onClick={props.handleLogout}>LOG OUT</Link>
-      </div>
+    <nav className="nav-wrapper  blue darken-3">
+    <div className="container">
+      <Link to="/" className="brand-logo arvo-font bigger-font center">FamBook</Link>
+      <ul id="nav-mobile">
+        <div className="left">
+          <li>
+            <Link to="/activity">Activity</Link>
+          </li>
+          <li>
+            <Link to="/join">Join Page</Link>
+          </li>
+        </div>
+        <div className="right">
+        <li>
+          <Link to='' onClick={props.handleLogout}>LOG OUT</Link>
+        </li>
+        <li>
+          WELCOME, {props.user.firstName}!
+        </li>
+        </div>
+      </ul>
     </div>
+  </nav>
     :
-    <div>
-      <Link to='/login'>LOG IN</Link>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <Link to='/signup'>SIGN UP</Link>
-    </div>;
+  <nav className="nav-wrapper light-blue darken-4">
+    <div className="container">
+      <Link to="/" className="brand-logo arvo-font bigger-font center">FamBook</Link>
+        <ul>
+          <div className="right">
+            <li>
+              <Link to='/login'>LOG IN</Link>
+            </li>
+            <li>
+              <Link to='/signup'>SIGN UP</Link>
+            </li>
+          </div>
+        </ul>
+    </div>
+  </nav>
 
   return (
     <div>

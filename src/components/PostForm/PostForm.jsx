@@ -11,13 +11,10 @@ class PostForm extends Component {
   }
 
   handleNewPost = (e) => {
-    e.preventDefault();
     var user = this.props.user._id;
     var content = this.state.content;
-    console.log(user);
     postsAPI.createNewPost(content, user)
       .then((post) => {
-        console.log(post);
       })
   }
 
@@ -38,7 +35,7 @@ class PostForm extends Component {
 
     return (
       <div className="row">
-        <div className="col s12">
+        <div className="col s12 margin-bottom">
 
           <form onSubmit={this.handleNewPost}>
             <div>
@@ -49,7 +46,7 @@ class PostForm extends Component {
                 onChange={(e) => this.handleChange('content', e)}
               />
             </div>
-            <button type="submit">Submit Post</button>
+            <button className="waves-effect waves-light btn cyan accent-4" type="submit">Submit Post</button>
           </form>
         </div>
 

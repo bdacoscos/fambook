@@ -37,8 +37,8 @@ class SignupForm extends Component {
 
   render() {
     return (
-      <div>
-        <header>Sign Up</header>
+      <div className="medium-margins">
+        <header className="arvo-font bigger-font">Sign Up</header>
         <form onSubmit={this.handleSubmit}>
           <div>
             <input
@@ -76,7 +76,7 @@ class SignupForm extends Component {
               onChange={(e) => this.handleChange('passwordConf', e)} />
           </div>
           <div>
-            <button disabled={this.isFormInvalid()}>
+            <button className="waves-effect waves-light btn blue accent-3" disabled={this.isFormInvalid()}>
               Sign Up
             </button>
             &nbsp;&nbsp;

@@ -2,15 +2,13 @@ import React from 'react';
 
 
 const PostCard = (props) => {
-  // console.log('postcard > props =', props)
 
   var card = props.post ?
-    <div className="">
+    <div classNameName="">
 
-        <div class="col s6">
-          <div class="card light-blue lighten-5">
-            <div class="card-content black-text">
-              <span class="card-title">Card Title</span>
+        <div className="col s6">
+          <div className="card white">
+            <div className="card-content black-text">
               <p>{props.post.content}</p>
             </div>
           </div>

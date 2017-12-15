@@ -36,7 +36,6 @@ function checkFamilyCode(code) {
     body: JSON.stringify({ ...code, ...userService.getUser() })
   })
     .then(res => {
-      console.log(res);
       if (res.ok) return res.json();
     });
 }

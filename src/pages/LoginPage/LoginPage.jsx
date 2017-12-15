@@ -3,7 +3,7 @@ import LoginForm from './../../components/LoginForm/LoginForm';
 
 const LoginPage = (props) => {
   return (
-    <div>
+    <div className="container">
       <LoginForm
         {...props}
         handleLogin={props.handleLogin}

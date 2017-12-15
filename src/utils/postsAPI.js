@@ -1,9 +1,7 @@
 import tokenService from './tokenService';
-import userService from './../utils/userService';
 
 const BASE_URL = '/api/posts';
 
-// grab all posts for family and index
 function index() {
   return fetch(BASE_URL, getAuthRequestOptions('GET'))
     .then(res => {
@@ -16,7 +14,6 @@ function index() {
 /*----- Helper Functions -----*/
 
 function createNewPost(post, user) {
-  console.log("i'm in postsAPI ", post, user);
   return fetch(BASE_URL, {
     method: 'POST',
     body: JSON.stringify({

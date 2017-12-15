@@ -29,8 +29,9 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <div>
-        <header>Log In</header>
+      <div className="medium-margins">
+
+        <header className="bigger-font arvo-font">Log In</header>
         <form onSubmit={this.handleSubmit} >
           <div>
             <input type="email" placeholder="Email" value={this.state.email} onChange={(e) => this.handleChange('email', e)} />
@@ -39,7 +40,7 @@ class LoginForm extends Component {
             <input type="password" placeholder="Password" value={this.state.pw} onChange={(e) => this.handleChange('pw', e)} />
           </div>
           <div>
-            <button>
+            <button className="waves-effect waves-light btn">
               Log In
             </button>
             &nbsp;&nbsp;

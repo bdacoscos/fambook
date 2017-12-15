@@ -32,8 +32,8 @@ class NewFamilyForm extends Component {
 
   render() {
     return (
-      <div className="col s12">
-        <header>Create A New Family</header>
+      <div className="col s12 medium-margins">
+        <header className="arvo-font bigger-font">Create A New Family</header>
         <p>Start a new family!</p>
         <form onSubmit={this.handleNewFam}>
           <input
@@ -42,17 +42,17 @@ class NewFamilyForm extends Component {
             onChange={(e) => this.handleChange('name', e)}
             value={this.state.name}
           />
-          <button type="submit">Create Family</button>
+          <button className="waves-effect waves-light btn" type="submit">Create Family</button>
         </form>
 
         {this.state.familyCode === '' ?
           <div></div>
           :
-          <div className="newFamilyCode">
+          <div className="margin-top med-font white-bg padding">
             Great, you created the {this.state.name} family!
             Give this unique code to family members so they can join your family:
-            <p>{this.state.familyCode}</p>
-            Go to <Link to="/activity">Activity Page</Link>
+            <strong><p>{this.state.familyCode}</p></strong>
+            Go to <Link to="/activity">Activity Page</Link>to create some posts!
           </div>
         }
 
