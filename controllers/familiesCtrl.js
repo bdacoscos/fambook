@@ -18,12 +18,14 @@ function joinFamily(req, res) {
 }
 
 function createFamily(req, res) {
+  console.log('familiesCtrl.createFamily hit');
   var family = new Family(req.body);
   family.familyCode = family._id
 
   family.save().then(fam => {
+    console.log(fam);
     res.json(fam);
-  }).catch(err => res.json(400).json(err));
+  }).catch(err => res.status(400).json(err));
 }
 
 module.exports = {

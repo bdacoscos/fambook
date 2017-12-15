@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from  'react-router-dom';
 import postsAPI from './../../utils/postsAPI';
 
 class PostForm extends Component {
@@ -12,7 +11,9 @@ class PostForm extends Component {
 
   handleNewPost = (e) => {
     e.preventDefault();
-    postsAPI.createNewPost(this.state)
+    var user = this.props.user;
+    // this.props.family[0].posts.push(this.state.content);
+    postsAPI.createNewPost(this.state, user)
       .then((post) => {
         console.log(post);
       })

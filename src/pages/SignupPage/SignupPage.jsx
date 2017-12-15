@@ -1,22 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SignupForm from './../../components/SignupForm/SignupForm';
 
-class SignupPage extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-
-  render() {
-    return (
-      <div>
-        <SignupForm
-          {...this.props}
-          handleSignup={this.props.handleSignup}
-        />
-      </div>
-    )
-  }
+const SignupPage = (props) => {
+  return (
+    <div>
+      <SignupForm
+        {...props}
+        handleSignup={props.handleSignup}
+      />
+    </div>
+  )
 };
 
 

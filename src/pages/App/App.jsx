@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {
   Switch,
   Redirect,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 import WelcomePage from './../WelcomePage/WelcomePage';
 import LoginPage from './../LoginPage/LoginPage';
@@ -18,7 +17,7 @@ class App extends Component {
     super();
     this.state = {
       family: null,
-      user: null,
+      user: null
 
     }
   }
@@ -82,7 +81,10 @@ class App extends Component {
             }/>
             <Route exact path='/activity' render={() => (
               userService.getUser() ?
-                <ActivityPage users={this.state.users}/>
+                <ActivityPage
+                  user={this.state.user}
+                  family={this.state.family}
+                />
                 :
                 <Redirect to='/login' />
               )}

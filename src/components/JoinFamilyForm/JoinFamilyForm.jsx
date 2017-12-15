@@ -11,9 +11,11 @@ class JoinFamilyForm extends Component {
 
   handleFamCheck = (e) => {
     e.preventDefault();
+    console.log(this.state);
     familiesAPI.checkFamilyCode(this.state)
       .then((family)=> {
-        this.props.history.push('/activity')
+        console.log(family);
+        // this.state.history.push('/activity')
       })
   }
 

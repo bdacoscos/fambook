@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PostCards from './../../components/PostCards/PostCards';
 import PostForm from './../../components/PostForm/PostForm';
 import familiesAPI from '../../utils/familiesAPI';
 
 
 class ActivityPage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       users: []
     }
@@ -36,7 +35,10 @@ class ActivityPage extends Component {
 
         <div className="row">
           <div className="col s12">
-            <PostForm />
+            <PostForm
+              user={this.props.user}
+              family={this.props.family}
+            />
           </div>
         </div>
 
