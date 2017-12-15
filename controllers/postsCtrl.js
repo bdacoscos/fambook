@@ -12,7 +12,7 @@ function createPost(req, res) {
 
   var newPost = new Post(req.body);
   newPost.save().then(post => {
-    Family.findOne({ familyCode: '5a33179400d55100049ea770'}).populate('posts').exec(
+    Family.findOne({ user: req.user._id}).exec(
       (err, fam) => {
         fam.posts.push(newPost);
         fam.save()
