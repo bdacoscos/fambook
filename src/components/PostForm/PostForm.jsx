@@ -11,9 +11,10 @@ class PostForm extends Component {
 
   handleNewPost = (e) => {
     e.preventDefault();
-    var user = this.props.user;
-    // this.props.family[0].posts.push(this.state.content);
-    postsAPI.createNewPost(this.state, user)
+    var user = this.props.user._id;
+    var content = this.state.content;
+    console.log(user);
+    postsAPI.createNewPost(content, user)
       .then((post) => {
         console.log(post);
       })

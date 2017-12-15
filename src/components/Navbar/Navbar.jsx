@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Navbar = (props) => {
   let nav = props.user ?
     <div>
-      <span className='NavBar-welcome'>
+      <span>
         WELCOME, {props.user.firstName}!
       </span>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

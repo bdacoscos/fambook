@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var commentSchema = require('./Comment');
 var Schema = mongoose.Schema;
 
 var postSchema = new mongoose.Schema({

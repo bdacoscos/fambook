@@ -19,7 +19,10 @@ function createNewPost(post, user) {
   console.log("i'm in postsAPI ", post, user);
   return fetch(BASE_URL, {
     method: 'POST',
-    body: JSON.stringify(post, user),
+    body: JSON.stringify({
+      content: post,
+      user: user
+    }),
     headers: new Headers({
       'Content-Type': 'application/json'
     })
