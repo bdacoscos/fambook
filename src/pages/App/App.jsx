@@ -18,7 +18,6 @@ class App extends Component {
     this.state = {
       family: null,
       user: null
-
     }
   }
 
@@ -42,9 +41,10 @@ class App extends Component {
   componentDidMount() {
     let user = userService.getUser();
     let findFamily = fetch('/api/families').then(res => res.json());
-    Promise.all([user, findFamily]).then((data) => {
+    let allPosts = fetch('/api/posts').then(res => res.json());
+    Promise.all([user, findFamily, allPosts]).then((data) => {
       console.log(data);
-      this.setState({user: data[0], family: data[1]});
+      this.setState({user: data[0], family: data[1], post: data[2]});
     })
   }
 
@@ -84,6 +84,7 @@ class App extends Component {
                 <ActivityPage
                   user={this.state.user}
                   family={this.state.family}
+                  post={this.state.post}
                 />
                 :
                 <Redirect to='/login' />

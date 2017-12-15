@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import postsAPI from './../../utils/postsAPI';
+import PostCard from './../PostCard/PostCard';
 
 class PostForm extends Component {
   constructor(props) {
@@ -27,6 +28,14 @@ class PostForm extends Component {
   }
 
   render() {
+    var posts = this.props.post;
+    var allPosts = this.props.post ?
+      posts.map(card => {
+        return <PostCard post={card} key={card._id} />
+      })
+      :
+      <div>Loading...</div>
+
     return (
       <div className="row">
         <div className="col s12">
@@ -43,6 +52,9 @@ class PostForm extends Component {
             <button type="submit">Submit Post</button>
           </form>
         </div>
+
+        {allPosts}
+
       </div>
     )
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PostCards from './../../components/PostCards/PostCards';
+import PostCard from './../../components/PostCard/PostCard';
 import PostForm from './../../components/PostForm/PostForm';
 import familiesAPI from '../../utils/familiesAPI';
 
@@ -38,13 +38,14 @@ class ActivityPage extends Component {
             <PostForm
               user={this.props.user}
               family={this.props.family}
+              post={this.props.post}
             />
           </div>
         </div>
 
         <div className="row">
           <div className="col s12">
-            <PostCards />
+            <PostCard />
           </div>
         </div>
 

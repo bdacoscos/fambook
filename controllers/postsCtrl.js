@@ -1,14 +1,10 @@
 var Post = require('./../models/Post');
 var Family = require('./../models/Family');
 
-function indexFamilyPosts(req, res) {
-  // INDEX ALL FAMILY POSTS FOR CURRENT USER'S FAMILY
-  // acquire Family model to access family
-
-  // Family.find({users: req.user._id}, function (err, families) {
-  //   console.log(families)
-  //   res.status(200).json(families);
-  // });
+function index(req, res) {
+  Post.find({}).then(posts => {
+    res.json(posts);
+  })
 
 }
 
@@ -33,6 +29,6 @@ function createPost(req, res) {
 }
 
 module.exports = {
-  indexFamilyPosts,
+  index,
   createPost
 }
