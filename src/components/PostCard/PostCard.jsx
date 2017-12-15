@@ -4,7 +4,7 @@ import React from 'react';
 const PostCard = (props) => {
 
   var card = props.post ?
-    <div classNameName="">
+    <div className="">
 
         <div className="col s6">
           <div className="card white">
